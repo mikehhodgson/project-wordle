@@ -13,21 +13,25 @@ const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
 console.info({ answer });
 
-const WonBanner = ({ numGuesses }) => (
-  <div className="happy banner">
-    <p>
-      <strong>Congratulations!</strong> Got it in{' '}
-      <strong>{numGuesses} guesses</strong>.
-    </p>
+const Banner = ({ status, children }) => (
+  <div className={`${status} banner`}>
+    <p>{children}</p>
   </div>
 );
 
+const WonBanner = ({ numGuesses }) => (
+  <Banner status="happy">
+    <strong>Congratulations!</strong> Got it in{' '}
+    <strong>
+      {numGuesses} guess{numGuesses > 1 ? 'es' : ''}
+    </strong>
+  </Banner>
+);
+
 const LostBanner = ({ answer }) => (
-  <div className="sad banner">
-    <p>
-      Sorry, the correct answer is <strong>{answer}</strong>.
-    </p>
-  </div>
+  <Banner status="sad">
+    Sorry, the correct answer is <strong>{answer}</strong>.
+  </Banner>
 );
 
 function Game() {
