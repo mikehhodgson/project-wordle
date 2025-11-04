@@ -14,8 +14,7 @@ console.info({ answer });
 function Game() {
   const [guesses, setGuesses] = useState([]);
 
-  const submitGuess = (value) =>
-    setGuesses([...guesses, { value, id: crypto.randomUUID() }]);
+  const submitGuess = (guess) => setGuesses([...guesses, guess]);
 
   return (
     <>
