@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
+import { checkGuess } from '../../game-helpers';
 
 import GuessInput from '../GuessInput';
 import GuessResults from '../GuessResults';
@@ -16,7 +17,8 @@ function Game() {
   const [guesses, setGuesses] = useState([]);
 
   const submitGuess = (guess) =>
-    guesses.length < NUM_OF_GUESSES_ALLOWED && setGuesses([...guesses, guess]);
+    guesses.length < NUM_OF_GUESSES_ALLOWED &&
+    setGuesses([...guesses, checkGuess(guess, answer)]);
 
   return (
     <>

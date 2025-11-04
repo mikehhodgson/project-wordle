@@ -6,8 +6,8 @@ function Guess({ guess }) {
   return (
     <p className="guess">
       {guess
-        ? guess.split('').map((letter, i) => (
-            <span key={i} className="cell">
+        ? guess.map(({ letter, status }, i) => (
+            <span key={i} className={`cell ${status}`}>
               {letter}
             </span>
           ))
