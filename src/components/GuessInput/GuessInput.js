@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function GuessInput({ submitGuess, disabled }) {
+function GuessInput({ submitGuess, disabled, ref }) {
   const [value, setValue] = useState('');
 
   const onChange = (e) => setValue(e.target.value.toUpperCase());
@@ -18,6 +18,7 @@ function GuessInput({ submitGuess, disabled }) {
       <input
         id="guess-input"
         type="text"
+        ref={ref}
         value={value}
         onChange={onChange}
         pattern="\w{5}"
