@@ -21,6 +21,10 @@ function GuessInput() {
         value={value}
         onChange={onChange}
         pattern="\w{5}"
+        title="5 letter word"
+        required
+        minLength={5}
+        maxLength={5}
       />
     </form>
   );
